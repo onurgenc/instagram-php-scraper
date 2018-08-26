@@ -200,6 +200,102 @@ class Account extends AbstractModel
     }
 
     /**
+     * @return bool
+     */
+    public function isNew()
+    {
+        return $this->isNew;
+    }
+
+    /**
+     * @param bool $isNew
+     */
+    public function setIsNew($isNew)
+    {
+        $this->isNew = $isNew;
+    }
+
+    /**
+     * @return bool
+     */
+    public function isLoadEmpty()
+    {
+        return $this->isLoadEmpty;
+    }
+
+    /**
+     * @param bool $isLoadEmpty
+     */
+    public function setIsLoadEmpty($isLoadEmpty)
+    {
+        $this->isLoadEmpty = $isLoadEmpty;
+    }
+
+    /**
+     * @return bool
+     */
+    public function isFake()
+    {
+        return $this->isFake;
+    }
+
+    /**
+     * @param bool $isFake
+     */
+    public function setIsFake($isFake)
+    {
+        $this->isFake = $isFake;
+    }
+
+    /**
+     * @return int
+     */
+    public function getisAutoConstruct()
+    {
+        return $this->isAutoConstruct;
+    }
+
+    /**
+     * @param int $isAutoConstruct
+     */
+    public function setIsAutoConstruct($isAutoConstruct)
+    {
+        $this->isAutoConstruct = $isAutoConstruct;
+    }
+
+    /**
+     * @return int
+     */
+    public function getModified()
+    {
+        return $this->modified;
+    }
+
+    /**
+     * @param int $modified
+     */
+    public function setModified($modified)
+    {
+        $this->modified = $modified;
+    }
+
+    /**
+     * @return array
+     */
+    public function getData()
+    {
+        return $this->data;
+    }
+
+    /**
+     * @param array $data
+     */
+    public function setData($data)
+    {
+        $this->data = $data;
+    }
+
+    /**
      * @param $value
      * @param $prop
      * @param $array
@@ -243,6 +339,11 @@ class Account extends AbstractModel
                 break;
             case 'is_verified':
                 $this->isVerified = (bool)$value;
+                break;
+            case 'is_new':
+                $this->isNew = (bool)$value;
+            case 'is_fake':
+                $this->isFake = (bool)$value;
                 break;
         }
     }

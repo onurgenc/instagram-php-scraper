@@ -1228,7 +1228,7 @@ class Instagram
                 $csrfToken = $match[1];
             }
             $cookies = static::parseCookies($response->headers['Set-Cookie']);
-            $mid = $cookies['mid'] ?? null;
+            $mid = $cookies['mid'] ?? '';
             $headers = ['cookie' => "csrftoken=$csrfToken; mid=$mid;",
                 'referer' => Endpoints::BASE_URL . '/',
                 'x-csrftoken' => $csrfToken,
