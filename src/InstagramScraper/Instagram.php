@@ -600,14 +600,14 @@ class Instagram
                 $maxId = '';
 
             }
-		
+
             $variables = json_encode([
                 'shortcode' => (string) $code,
                 'first' => (string) $numberOfCommentsToRetreive,
                 'after' => (string) $maxId
             ]);
 
-            $commentsUrl = Endpoints::getCommentsBeforeCommentIdByCode($variables);		
+            $commentsUrl = Endpoints::getCommentsBeforeCommentIdByCode($variables);
             $response = Request::get($commentsUrl, $this->generateHeaders($this->userSession, $this->generateGisToken($variables)));
             // use a raw constant in the code is not a good idea!!
             //if ($response->code !== 200) {
@@ -1228,7 +1228,7 @@ class Instagram
                 $csrfToken = $match[1];
             }
             $cookies = static::parseCookies($response->headers['Set-Cookie']);
-            $mid = $cookies['mid'];
+            $mid = $cookies['mid'] ?? null;
             $headers = ['cookie' => "csrftoken=$csrfToken; mid=$mid;",
                 'referer' => Endpoints::BASE_URL . '/',
                 'x-csrftoken' => $csrfToken,

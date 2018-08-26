@@ -1,17 +1,17 @@
 {
-  "name": "raiym/instagram-php-scraper",
+  "name": "onurgenc/instagram-php-scraper",
   "description": "Instagram PHP Scraper. Get account information, photos and videos without any authorization",
   "keywords": [
     "instagram",
     "scraper"
   ],
   "type": "library",
-  "homepage": "https://github.com/raiym/instagram-php-scraper",
+  "homepage": "https://github.com/onurgenc/instagram-php-scraper",
   "license": "MIT",
   "authors": [
     {
-      "name": "raiym",
-      "email": "r.kapishev@gmail.com"
+      "name": "onurgenc",
+      "email": "onurgenc@gmail.com"
     }
   ],
   "require": {
@@ -28,6 +28,6 @@
     }
   },
   "support": {
-    "email": "r.kapishev@gmail.com"
+    "email": "onurgenc@gmail.com"
   }
 }
