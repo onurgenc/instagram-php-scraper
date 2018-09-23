@@ -1239,6 +1239,11 @@ class Instagram
             if ($response->code !== static::HTTP_OK) {
                 if ($response->code === static::HTTP_BAD_REQUEST && isset($response->body->message) && $response->body->message == 'checkpoint_required' && $support_two_step_verification) {
                     $response = $this->verifyTwoStep($response, $cookies);
+                
+                }elseif ($response->code === static::HTTP_BAD_REQUEST && isset($response->body->message) && $response->body->message == 'checkpoint_required' ) {
+                    $message = json_decode($response->raw_body,1);
+                    $message['username'] = $this->sessionUsername;
+                    throw new \Exception(json_encode($message), 409);
                 } elseif ((is_string($response->code) || is_numeric($response->code)) && is_string($response->body)) {
                     throw new InstagramAuthException('Response code is ' . $response->code . '. Body: ' . $response->body . ' Something went wrong. Please report issue.', $response->code);
                 } else {
